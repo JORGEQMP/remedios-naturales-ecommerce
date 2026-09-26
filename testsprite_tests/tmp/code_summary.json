@@ -1,0 +1,176 @@
+{
+  "tech_stack": [
+    "TypeScript",
+    "Next.js 16",
+    "React 19",
+    "Tailwind CSS v4",
+    "shadcn/ui",
+    "Prisma",
+    "PostgreSQL",
+    "NextAuth.js",
+    "Stripe",
+    "Zustand",
+    "React Hook Form",
+    "Zod"
+  ],
+  "features": [
+    {
+      "name": "Authentication",
+      "description": "User authentication with NextAuth.js including login, registration and session management",
+      "files": [
+        "src/app/api/auth/[...nextauth]/route.ts",
+        "src/app/api/auth/register/route.ts",
+        "src/app/(auth)/login/page.tsx",
+        "src/app/(auth)/register/page.tsx",
+        "src/lib/auth.ts",
+        "src/middleware.ts",
+        "src/components/providers/SessionProvider.tsx"
+      ]
+    },
+    {
+      "name": "Product Catalog",
+      "description": "Browse products with filtering by category, brand, price range and sorting options",
+      "files": [
+        "src/app/(shop)/products/page.tsx",
+        "src/app/(shop)/products/[id]/page.tsx",
+        "src/components/products/ProductCard.tsx",
+        "src/components/products/ProductGrid.tsx",
+        "src/components/products/ProductGallery.tsx",
+        "src/components/products/FilterSidebar.tsx",
+        "src/components/products/FilterMobile.tsx",
+        "src/components/products/CategoryFilter.tsx",
+        "src/components/products/BrandFilter.tsx",
+        "src/components/products/PriceFilter.tsx",
+        "src/components/products/SortSelect.tsx",
+        "src/stores/products-store.ts",
+        "src/app/api/products/route.ts",
+        "src/app/api/products/[id]/route.ts"
+      ]
+    },
+    {
+      "name": "Shopping Cart",
+      "description": "Shopping cart functionality with add, remove, update quantity operations using Zustand",
+      "files": [
+        "src/app/(shop)/cart/page.tsx",
+        "src/components/cart/CartItem.tsx",
+        "src/components/cart/CartSummary.tsx",
+        "src/components/cart/StripeCheckoutButton.tsx",
+        "src/stores/cart-store.ts"
+      ]
+    },
+    {
+      "name": "Checkout",
+      "description": "Checkout flow with shipping form, payment form, order summary and Stripe integration",
+      "files": [
+        "src/app/(shop)/checkout/page.tsx",
+        "src/app/(shop)/checkout/success/page.tsx",
+        "src/app/(shop)/checkout/cancel/page.tsx",
+        "src/components/checkout/ShippingForm.tsx",
+        "src/components/checkout/PaymentForm.tsx",
+        "src/components/checkout/OrderSummary.tsx",
+        "src/app/api/checkout/route.ts",
+        "src/app/api/webhook/stripe/route.ts",
+        "src/lib/stripe.ts"
+      ]
+    },
+    {
+      "name": "User Profile",
+      "description": "User profile management including orders, addresses, favorites and settings",
+      "files": [
+        "src/app/(shop)/profile/page.tsx",
+        "src/app/(shop)/profile/layout.tsx",
+        "src/app/(shop)/profile/orders/page.tsx",
+        "src/app/(shop)/profile/addresses/page.tsx",
+        "src/app/(shop)/profile/addresses/new/page.tsx",
+        "src/app/(shop)/profile/addresses/[id]/edit/page.tsx",
+        "src/app/(shop)/profile/favorites/page.tsx",
+        "src/app/(shop)/profile/settings/page.tsx",
+        "src/components/profile/ProfileSidebar.tsx",
+        "src/components/profile/ProfileMobileNav.tsx",
+        "src/app/api/addresses/[id]/route.ts"
+      ]
+    },
+    {
+      "name": "Admin Panel",
+      "description": "Admin dashboard for managing products, users, orders and payments",
+      "files": [
+        "src/app/(admin-panel)/admin/page.tsx",
+        "src/app/(admin-panel)/admin/layout.tsx",
+        "src/app/(admin-panel)/admin/products/page.tsx",
+        "src/app/(admin-panel)/admin/products/new/page.tsx",
+        "src/app/(admin-panel)/admin/users/page.tsx",
+        "src/app/(admin-panel)/admin/users/new/page.tsx",
+        "src/app/(admin-panel)/admin/payments/page.tsx",
+        "src/app/(admin-panel)/admin/settings/page.tsx",
+        "src/components/admin/AdminSidebar.tsx",
+        "src/components/admin/AdminHeader.tsx",
+        "src/components/admin/AdminMobileNav.tsx",
+        "src/components/admin/StatsCard.tsx",
+        "src/stores/admin-store.ts",
+        "src/app/api/admin/dashboard/route.ts",
+        "src/app/api/admin/orders/route.ts"
+      ]
+    },
+    {
+      "name": "Layout Components",
+      "description": "Shared layout components including header, footer, navigation and theme toggle",
+      "files": [
+        "src/app/layout.tsx",
+        "src/app/(shop)/layout.tsx",
+        "src/components/layout/TopBar.tsx",
+        "src/components/layout/Footer.tsx",
+        "src/components/layout/MobileNav.tsx",
+        "src/components/layout/ThemeToggle.tsx",
+        "src/components/providers/ThemeProvider.tsx"
+      ]
+    },
+    {
+      "name": "Home Page",
+      "description": "Homepage with brand section and featured content",
+      "files": [
+        "src/app/(shop)/page.tsx",
+        "src/components/home/BrandSection.tsx"
+      ]
+    },
+    {
+      "name": "API Routes",
+      "description": "RESTful API endpoints for products, categories, brands, users and orders",
+      "files": [
+        "src/app/api/products/route.ts",
+        "src/app/api/products/[id]/route.ts",
+        "src/app/api/categories/route.ts",
+        "src/app/api/brands/route.ts",
+        "src/app/api/users/route.ts",
+        "src/app/api/orders/[id]/route.ts"
+      ]
+    },
+    {
+      "name": "UI Components",
+      "description": "Reusable shadcn/ui components including buttons, cards, forms, dialogs and tables",
+      "files": [
+        "src/components/ui/button.tsx",
+        "src/components/ui/card.tsx",
+        "src/components/ui/input.tsx",
+        "src/components/ui/badge.tsx",
+        "src/components/ui/dialog.tsx",
+        "src/components/ui/sheet.tsx",
+        "src/components/ui/table.tsx",
+        "src/components/ui/tabs.tsx",
+        "src/components/ui/select.tsx",
+        "src/components/ui/checkbox.tsx",
+        "src/components/ui/slider.tsx",
+        "src/components/ui/textarea.tsx",
+        "src/components/ui/carousel.tsx"
+      ]
+    },
+    {
+      "name": "Database",
+      "description": "Prisma ORM setup with PostgreSQL database",
+      "files": [
+        "src/lib/prisma.ts",
+        "src/lib/transformers.ts",
+        "prisma/schema.prisma"
+      ]
+    }
+  ]
+}

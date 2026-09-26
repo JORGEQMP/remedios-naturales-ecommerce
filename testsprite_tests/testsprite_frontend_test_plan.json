@@ -1,0 +1,651 @@
+[
+  {
+    "id": "TC001",
+    "title": "User Registration Success",
+    "description": "Verify that a new user can register successfully with valid email and password.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to the registration page."
+      },
+      {
+        "type": "action",
+        "description": "Input valid email, password, and confirm password."
+      },
+      {
+        "type": "action",
+        "description": "Submit the registration form."
+      },
+      {
+        "type": "assertion",
+        "description": "Check that registration completes successfully and user is redirected to login or home page."
+      }
+    ]
+  },
+  {
+    "id": "TC002",
+    "title": "User Registration Validation Errors",
+    "description": "Verify that registration form shows errors for invalid inputs like duplicate email, weak password, and mismatched confirmation.",
+    "category": "error handling",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to registration page."
+      },
+      {
+        "type": "action",
+        "description": "Enter invalid email format."
+      },
+      {
+        "type": "action",
+        "description": "Input weak password and mismatching confirm password."
+      },
+      {
+        "type": "action",
+        "description": "Submit the form."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify validation error messages are displayed for email format, password strength, and password confirmation."
+      },
+      {
+        "type": "action",
+        "description": "Use an already registered email and valid password."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify registration is rejected due to duplicate email."
+      }
+    ]
+  },
+  {
+    "id": "TC003",
+    "title": "User Login Success",
+    "description": "Verify that registered users can log in successfully with valid credentials.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to login page."
+      },
+      {
+        "type": "action",
+        "description": "Input registered email and valid password."
+      },
+      {
+        "type": "action",
+        "description": "Click login button."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify user is authenticated and redirected to the home or profile page."
+      }
+    ]
+  },
+  {
+    "id": "TC004",
+    "title": "User Login Failure",
+    "description": "Verify login fails with incorrect email or password, and proper error messages are shown.",
+    "category": "error handling",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to login page."
+      },
+      {
+        "type": "action",
+        "description": "Enter unregistered email and any password."
+      },
+      {
+        "type": "action",
+        "description": "Attempt to login."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify error message indicating invalid login credentials is shown."
+      },
+      {
+        "type": "action",
+        "description": "Enter registered email with incorrect password."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify error message indicating invalid login credentials is shown."
+      }
+    ]
+  },
+  {
+    "id": "TC005",
+    "title": "Role-Based Access Control Enforcement",
+    "description": "Verify that pages and API endpoints restrict access properly based on user roles: customer, moderator, admin.",
+    "category": "security",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Log in as a customer."
+      },
+      {
+        "type": "action",
+        "description": "Attempt to access admin panel pages."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify access is denied or redirected away."
+      },
+      {
+        "type": "action",
+        "description": "Log in as a moderator."
+      },
+      {
+        "type": "action",
+        "description": "Access moderator-allowed admin features."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify access is granted."
+      },
+      {
+        "type": "action",
+        "description": "Log in as admin."
+      },
+      {
+        "type": "action",
+        "description": "Access all admin panel features."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify full access is granted."
+      },
+      {
+        "type": "action",
+        "description": "Attempt to call protected API endpoints without authentication."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify API responds with unauthorized status."
+      }
+    ]
+  },
+  {
+    "id": "TC006",
+    "title": "Product Catalog Filtering and Sorting",
+    "description": "Verify product catalog filtering by category, brand, price range, and sorting by price or popularity works correctly.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to products listing page."
+      },
+      {
+        "type": "action",
+        "description": "Apply category filter."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify displayed products belong only to selected category."
+      },
+      {
+        "type": "action",
+        "description": "Apply brand filter."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify displayed products are filtered by selected brand."
+      },
+      {
+        "type": "action",
+        "description": "Apply price range filter with valid min and max values."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify products have prices within selected range."
+      },
+      {
+        "type": "action",
+        "description": "Select sorting option by price ascending."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify products are ordered by price ascending."
+      },
+      {
+        "type": "action",
+        "description": "Select sorting option by popularity."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify products are ordered by popularity descending."
+      }
+    ]
+  },
+  {
+    "id": "TC007",
+    "title": "Product Details Page Display",
+    "description": "Verify product detail page displays correct information including images, description, price, stock status, and related products.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to a product details page by clicking on a product from catalog."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify all product images load and image gallery navigates correctly."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify product name, description, price, and stock availability are displayed correctly."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify related products section displays relevant items."
+      }
+    ]
+  },
+  {
+    "id": "TC008",
+    "title": "Shopping Cart Operations",
+    "description": "Verify adding items to cart, removing items, and updating quantity update the state and pricing correctly.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to a product details page."
+      },
+      {
+        "type": "action",
+        "description": "Add product to cart with default quantity."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify cart displays newly added product with correct quantity and price."
+      },
+      {
+        "type": "action",
+        "description": "Add another product to cart."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify both products appear in cart with correct individual and total price."
+      },
+      {
+        "type": "action",
+        "description": "In the cart page, increase the quantity of a product."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify updated quantity and recalculated total price in the cart summary."
+      },
+      {
+        "type": "action",
+        "description": "Remove a product from the cart."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify product is removed from the cart and total price is updated."
+      }
+    ]
+  },
+  {
+    "id": "TC009",
+    "title": "Checkout Flow Success",
+    "description": "Verify the multi-step checkout flow completes successfully with valid shipping and payment details and creates an order.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Log in as authenticated user with items in cart."
+      },
+      {
+        "type": "action",
+        "description": "Go to checkout page."
+      },
+      {
+        "type": "action",
+        "description": "Fill shipping form with valid address details."
+      },
+      {
+        "type": "action",
+        "description": "Proceed to payment form."
+      },
+      {
+        "type": "action",
+        "description": "Input valid payment card details using Stripe test tokens."
+      },
+      {
+        "type": "action",
+        "description": "Submit payment."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify payment is processed successfully and order confirmation page is displayed."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the new order appears in user order history and admin order management."
+      }
+    ]
+  },
+  {
+    "id": "TC010",
+    "title": "Checkout Flow Payment Failure Handling",
+    "description": "Verify checkout flow handles Stripe payment failure or cancellation gracefully.",
+    "category": "error handling",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Start checkout flow with valid cart."
+      },
+      {
+        "type": "action",
+        "description": "Input valid shipping details and proceed."
+      },
+      {
+        "type": "action",
+        "description": "Enter payment details with Stripe declined test card or simulate cancellation."
+      },
+      {
+        "type": "action",
+        "description": "Submit payment."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify checkout shows payment failure or cancellation message."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify no order is created and user can retry payment or modify cart."
+      }
+    ]
+  },
+  {
+    "id": "TC011",
+    "title": "User Profile Management CRUD",
+    "description": "Verify authenticated users can view and update personal info, manage addresses, favorite products, and account settings.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Log in as an authenticated user."
+      },
+      {
+        "type": "action",
+        "description": "Navigate to user profile page."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify personal information is displayed correctly."
+      },
+      {
+        "type": "action",
+        "description": "Update personal info and save changes."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify changes persist after refresh."
+      },
+      {
+        "type": "action",
+        "description": "Add a new address via address management page."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify new address appears in address list."
+      },
+      {
+        "type": "action",
+        "description": "Edit and delete existing addresses."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify addresses update correctly after edits and removals."
+      },
+      {
+        "type": "action",
+        "description": "Add and remove products from favorites."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify favorites list updates accordingly."
+      }
+    ]
+  },
+  {
+    "id": "TC012",
+    "title": "Admin Panel Product CRUD Operations",
+    "description": "Verify admins can create, read, update, and delete products via the admin panel with proper validations.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Log in as admin user."
+      },
+      {
+        "type": "action",
+        "description": "Navigate to admin products management page."
+      },
+      {
+        "type": "action",
+        "description": "Create a new product with all required fields and valid data."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify new product appears in the product list."
+      },
+      {
+        "type": "action",
+        "description": "Edit the product details and save."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify updated product data is reflected in list and product pages."
+      },
+      {
+        "type": "action",
+        "description": "Delete the product."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify product no longer appears in catalog or admin panel."
+      }
+    ]
+  },
+  {
+    "id": "TC013",
+    "title": "Admin Panel User Management and Role Assignments",
+    "description": "Verify admins can manage users including creating, updating roles, and deleting accounts.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Log in as admin."
+      },
+      {
+        "type": "action",
+        "description": "Navigate to admin users management page."
+      },
+      {
+        "type": "action",
+        "description": "Create a new user with customer role."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify new user appears in the users list."
+      },
+      {
+        "type": "action",
+        "description": "Update existing user roles to moderator or admin."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify role changes are saved and applied correctly."
+      },
+      {
+        "type": "action",
+        "description": "Delete a user account."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify user no longer exists and cannot log in."
+      }
+    ]
+  },
+  {
+    "id": "TC014",
+    "title": "API Endpoint Response and Error Handling",
+    "description": "Verify all RESTful API endpoints respond correctly to valid requests and handle invalid or unauthorized requests gracefully.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Send valid GET request to products endpoint."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify response contains products data with proper schema."
+      },
+      {
+        "type": "action",
+        "description": "Send invalid request (e.g., malformed product ID) to product detail endpoint."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify response returns appropriate error status and message."
+      },
+      {
+        "type": "action",
+        "description": "Send unauthorized request to protected admin API endpoints."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify response returns 401 Unauthorized or 403 Forbidden status."
+      }
+    ]
+  },
+  {
+    "id": "TC015",
+    "title": "Responsive Design Verification",
+    "description": "Verify the UI renders correctly and is usable across supported device sizes: mobile, tablet, desktop, and supports light/dark mode toggling.",
+    "category": "ui",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Open the application on desktop browser."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify layout, navigation, and all UI elements display properly."
+      },
+      {
+        "type": "action",
+        "description": "Resize browser or use emulator to simulate tablet screen."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify responsive layout adjusts correctly without content overlap or clipping."
+      },
+      {
+        "type": "action",
+        "description": "Use mobile viewport emulator."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify mobile navigation and UI components render correctly and remain accessible."
+      },
+      {
+        "type": "action",
+        "description": "Toggle between light and dark theme using theme switch."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify colors and UI elements adapt as expected without visual glitches."
+      }
+    ]
+  },
+  {
+    "id": "TC016",
+    "title": "Database Integrity and Relational Constraints",
+    "description": "Verify that database schema enforces data integrity, relationships, and constraints as per application requirements.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Insert product with valid foreign keys (category, brand) into database via API."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify insertion succeeds and relational links are correct."
+      },
+      {
+        "type": "action",
+        "description": "Attempt to insert product with invalid or missing foreign keys."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify insertion fails with constraint violation errors."
+      },
+      {
+        "type": "action",
+        "description": "Insert user with roles and related addresses and orders."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify data integrity across user, address, and order tables."
+      },
+      {
+        "type": "action",
+        "description": "Delete parent record and verify cascading rules or restrictions."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify database responds according to defined foreign key policies."
+      }
+    ]
+  },
+  {
+    "id": "TC017",
+    "title": "Performance and SEO Checks",
+    "description": "Verify pages load quickly with initial server-side rendering and skeleton loading states are shown during data fetches.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Load homepage and product catalog pages with network throttling simulated."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify loading skeleton components display until data is fetched."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify page content is server-side rendered for SEO by checking source HTML."
+      },
+      {
+        "type": "action",
+        "description": "Measure page load time under normal network conditions."
+      },
+      {
+        "type": "assertion",
+        "description": "Verify load times meet performance requirements."
+      }
+    ]
+  }
+]

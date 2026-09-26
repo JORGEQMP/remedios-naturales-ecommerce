@@ -1,0 +1,18 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:3000",
+  "loginUser": "fazt@faztweb.com",
+  "loginPassword": "faztpassword",
+  "executionArgs": {
+    "projectName": "ecommerce-basictech",
+    "projectPath": "C:\\Users\\fazt\\Desktop\\ecommerce-basictech",
+    "testIds": [],
+    "additionalInstruction": "",
+    "envs": {
+      "API_KEY": "sk-user-sTg1yVmkRRFlQmJ14s8bA0xoFFP_5G8pebO92N6I_pwl3b3SXkKMxK9qs_nA8vmBoS9fUfNuwkLNlyNe1NKofsdQ7xDd2GmArrVH-BwjS7s4fEHVtBTQPHI_O9_se9G3_vQ"
+    }
+  },
+  "proxy": "http://4230fb40-756e-4e87-8a3b-cad25d0556be:o4uQWRmJjIPF8zj7QLd27p3mynWkYdVh@tun.testsprite.com:8080"
+}

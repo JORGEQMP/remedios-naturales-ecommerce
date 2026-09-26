@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(docker-compose up:*)",
+      "Bash(npm install:*)",
+      "Bash(claude mcp add TestSprite --env API_KEY=sk-user-sTg1yVmkRRFlQmJ14s8bA0xoFFP_5G8pebO92N6I_pwl3b3SXkKMxK9qs_nA8vmBoS9fUfNuwkLNlyNe1NKofsdQ7xDd2GmArrVH-BwjS7s4fEHVtBTQPHI_O9_se9G3_vQ -- npx @testsprite/testsprite-mcp@latest)"
+    ]
+  }
+}
