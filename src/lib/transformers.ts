@@ -3,7 +3,7 @@ import type {
   Product as PrismaProduct,
   Category as PrismaCategory,
   Brand as PrismaBrand,
-} from "@/generated/prisma"
+} from "@/generated/prisma/client"
 
 type ProductWithRelations = PrismaProduct & {
   category: PrismaCategory
